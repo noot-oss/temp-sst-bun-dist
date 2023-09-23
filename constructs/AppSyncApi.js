@@ -15,7 +15,10 @@ import * as appSyncApiDomain from "./util/appSyncApiDomain.js";
 import { getFunctionRef, isCDKConstruct } from "./Construct.js";
 import { Function as Fn, } from "./Function.js";
 import { useProject } from "../project.js";
-import { GraphqlApi, MappingTemplate as CDKMappingTemplate, SchemaFile, Definition, } from "aws-cdk-lib/aws-appsync";
+// import appsync, { GraphqlApi, MappingTemplate, Def as CDKMappingTemplate, SchemaFile } from "aws-cdk-lib/aws-appsync";
+import * as appsync from 'aws-cdk-lib/aws-appsync';
+const { GraphqlApi, MappingTemplate, SchemaFile } = appsync;
+const Def = appsync.CDKMappingTemplate;
 /////////////////////
 // Construct
 /////////////////////
@@ -483,9 +486,9 @@ export class AppSyncApi extends Construct {
             return undefined;
         }
         if (mapping.file) {
-            return CDKMappingTemplate.fromFile(mapping.file);
+            return appsync.CDKMappingTemplate.fromFile(mapping.file);
         }
-        return CDKMappingTemplate.fromString(mapping.inline);
+        return appsync.CDKMappingTemplate.fromString(mapping.inline);
     }
     buildDataSourceKey(typeName, fieldName) {
         return `LambdaDS_${typeName}_${fieldName}`;
