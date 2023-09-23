@@ -55,7 +55,7 @@
     "@aws-sdk/middleware-signing": "^3.272.0",
     "@aws-sdk/signature-v4-crt": "^3.272.0",
     "@aws-sdk/smithy-client": "^3.279.0",
-    "@babel/core": "7.0.0-0",
+    "@babel/core": "7.22.20",
     "@babel/generator": "^7.20.5",
     "@babel/plugin-syntax-typescript": "^7.21.4",
     "@smithy/signature-v4": "^2.0.4",
